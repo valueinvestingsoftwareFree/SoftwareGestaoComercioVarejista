@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aula 8. Registrar Compras | Controle de Estoque, Cálculo de Custos e Gestão de Compras</title>
+
+<meta name="description" content="Aprenda a importância do registro de compras dentro do sistema ERP. Entenda como as transações de compra afetam os níveis de estoque, a avaliação do inventário, o cálculo de custos, a análise de fornecedores, o controle financeiro, a previsão de disponibilidade e a business intelligence.">
+
+<meta name="keywords" content="registrar compras ERP, gestão de compras e estoque, software de controle de estoque, transações de compra, cálculo de custos de inventário, sistema de compras de fornecedores, gestão de estoque ERP, fluxo de compras, avaliação de inventário, disponibilidade de estoque">
+
+<style>
+
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        line-height:1.8;
+    }
+
+    .container{
+        width:90%;
+        max-width:1150px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.4);
+    }
+
+    h1{
+        font-size:2.3rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
+
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.6rem;
+    }
+
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
+
+    ul{
+        color:#d1d5db;
+        padding-left:25px;
+    }
+
+    li{
+        margin-bottom:14px;
+    }
+
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
+
+    .intro-box{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-bottom:35px;
+    }
+
+    .section{
+        margin-top:50px;
+        padding-top:25px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .button{
+        display:inline-block;
+        margin:10px;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
+
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
+
+    .button-green{
+        background:#059669;
+    }
+
+    .button-green:hover{
+        background:#047857;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Aula 8. Registrar Compras
+    </h1>
+
+    <div class="intro-box">
+
+        <p>
+            Nesta aula você aprenderá como registrar 
+            <span class="highlight">Compras</span> 
+            dentro do sistema ERP e de gestão de estoque.
+        </p>
+
+        <p>
+            O registro de compras é um dos processos operacionais mais importantes dentro de qualquer empresa porque as transações de compra afetam diretamente as quantidades de estoque, a avaliação do inventário, os saldos de fornecedores, a disponibilidade de produtos, os custos operacionais, as informações contábeis e futuras decisões empresariais.
+        </p>
+
+        <p>
+            Um sistema de compras projetado corretamente transforma um simples registro de estoque em uma plataforma completa de inteligência operacional.
+        </p>
+
+    </div>
+
+    <h2>
+        Por Que Registrar Compras É Extremamente Importante
+    </h2>
+
+    <p>
+        Cada transação de compra representa muito mais do que simplesmente adicionar produtos ao estoque.
+    </p>
+
+    <p>
+        Quando as compras são registradas corretamente, o sistema começa a gerar informações operacionais, financeiras, logísticas e analíticas valiosas que se tornam essenciais para administrar a empresa de forma profissional.
+    </p>
+
+    <p>
+        Sem um registro adequado das compras, as empresas frequentemente perdem visibilidade sobre:
+    </p>
+
+    <ul>
+        <li>Quantidades reais de estoque</li>
+        <li>Custos reais dos produtos</li>
+        <li>Desempenho dos fornecedores</li>
+        <li>Disponibilidade de estoque</li>
+        <li>Avaliação do inventário</li>
+        <li>Histórico de compras</li>
+        <li>Rentabilidade operacional</li>
+        <li>Necessidades de reposição</li>
+        <li>Consumo do fluxo de caixa</li>
+        <li>Tendências de compras</li>
+    </ul>
+
+    <p>
+        Registrar compras corretamente permite que o sistema ERP se torne a memória operacional da empresa.
+    </p>
+
+    <h2>
+        Atualizações Automáticas de Estoque
+    </h2>
+
+    <p>
+        Um dos efeitos mais imediatos do registro de compras é a atualização automática do estoque.
+    </p>
+
+    <p>
+        Sempre que uma compra é registrada, as quantidades em estoque dos produtos envolvidos aumentam automaticamente dentro do banco de dados.
+    </p>
+
+    <p>
+        Isso fornece visibilidade em tempo real do inventário e ajuda as empresas a saber:
+    </p>
+
+    <ul>
+        <li>Estoque disponível atual</li>
+        <li>Quantidades restantes de inventário</li>
+        <li>Quais produtos estão disponíveis para venda</li>
+        <li>Quais produtos precisam de reposição</li>
+        <li>Quais produtos estão com excesso de estoque</li>
+        <li>Quais produtos têm maior giro</li>
+    </ul>
+
+    <p>
+        Atualizações de estoque em tempo real são essenciais para reduzir erros operacionais e melhorar o controle geral do inventário.
+    </p>
+
+    <h2>
+        Cálculo dos Custos dos Produtos
+    </h2>
+
+    <p>
+        O registro de compras também é fundamental para o cálculo correto dos custos dos produtos.
+    </p>
+
+    <p>
+        Cada transação de compra contribui com informações valiosas de preços que ajudam a determinar:
+    </p>
+
+    <ul>
+        <li>Custos médios dos produtos</li>
+        <li>Últimos preços de compra</li>
+        <li>Histórico de preços dos fornecedores</li>
+        <li>Variações de custos ao longo do tempo</li>
+        <li>Comparações de preços entre fornecedores</li>
+        <li>Avaliação do inventário</li>
+        <li>Cálculos de lucro bruto</li>
+    </ul>
+
+    <p>
+        Informações precisas sobre custos são fundamentais porque custos incorretos dos produtos podem levar a:
+    </p>
+
+    <ul>
+        <li>Preços de venda incorretos</li>
+        <li>Perdas financeiras ocultas</li>
+        <li>Análises inadequadas de rentabilidade</li>
+        <li>Erros de precificação</li>
+        <li>Distorções na avaliação do inventário</li>
+    </ul>
+
+    <p>
+        Um sistema de compras mantido corretamente ajuda as empresas a compreender o verdadeiro valor econômico de seu inventário.
+    </p>
+
+    <h2>
+        Disponibilidade de Estoque e Planejamento Operacional
+    </h2>
+
+    <p>
+        O registro de compras também melhora a gestão da disponibilidade de estoque.
+    </p>
+
+    <p>
+        O sistema ERP pode determinar se existe estoque suficiente para suportar:
+    </p>
+
+    <ul>
+        <li>Vendas futuras</li>
+        <li>Demanda dos clientes</li>
+        <li>Produção operacional</li>
+        <li>Necessidades de distribuição</li>
+        <li>Consumo interno</li>
+    </ul>
+
+    <p>
+        Empresas que não acompanham corretamente suas compras frequentemente sofrem com:
+    </p>
+
+    <ul>
+        <li>Falta inesperada de estoque</li>
+        <li>Excesso de inventário</li>
+        <li>Oportunidades de venda perdidas</li>
+        <li>Situações de compras emergenciais</li>
+        <li>Insatisfação dos clientes</li>
+    </ul>
+
+    <p>
+        O registro de compras permite que o planejamento de estoque se torne mais previsível e eficiente.
+    </p>
+
+</div>
+
+</body>
+</html>
