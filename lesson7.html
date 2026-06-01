@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aula 7. Criação de Fornecedores | Gestão Geográfica de Fornecedores com Mapas e Coordenadas</title>
+
+<meta name="description" content="Aprenda como criar fornecedores dentro do sistema ERP utilizando mapas geográficos e armazenamento de coordenadas. Entenda a importância da geolocalização de fornecedores, análise logística, planejamento de rotas, otimização de compras, business intelligence e bancos de dados geográficos de fornecedores.">
+
+<meta name="keywords" content="software de gestão de fornecedores, coordenadas de mapa de fornecedores, ERP fornecedores, geolocalização de fornecedores, banco de dados geográfico de fornecedores, sistema de gestão de compras, logística de fornecedores, otimização de rotas de fornecedores, software ERP de estoque, análise de fornecedores">
+
+<style>
+
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        line-height:1.8;
+    }
+
+    .container{
+        width:90%;
+        max-width:1150px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.4);
+    }
+
+    h1{
+        font-size:2.3rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
+
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.6rem;
+    }
+
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
+
+    ul{
+        color:#d1d5db;
+        padding-left:25px;
+    }
+
+    li{
+        margin-bottom:14px;
+    }
+
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
+
+    .intro-box{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-bottom:35px;
+    }
+
+    .section{
+        margin-top:50px;
+        padding-top:25px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .button{
+        display:inline-block;
+        margin:10px;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
+
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
+
+    .button-green{
+        background:#059669;
+    }
+
+    .button-green:hover{
+        background:#047857;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Aula 7. Criação de Fornecedores
+    </h1>
+
+    <div class="intro-box">
+
+        <p>
+            Nesta aula você aprenderá a criar e gerenciar 
+            <span class="highlight">Fornecedores</span> 
+            dentro do sistema ERP utilizando recursos avançados de integração geográfica.
+        </p>
+
+        <p>
+            Um dos recursos mais poderosos do software é que os fornecedores são criados diretamente no mapa e suas coordenadas geográficas são armazenadas permanentemente no banco de dados.
+        </p>
+
+        <p>
+            Isso transforma a gestão tradicional de fornecedores em um sistema empresarial muito mais avançado do ponto de vista operacional, geográfico e analítico.
+        </p>
+
+    </div>
+
+    <h2>
+        Criação de Fornecedores com Coordenadas Geográficas
+    </h2>
+
+    <p>
+        Durante a criação do fornecedor, o usuário pode posicioná-lo visualmente na interface do mapa.
+    </p>
+
+    <p>
+        O sistema armazena a localização do fornecedor utilizando coordenadas geográficas como latitude e longitude diretamente no banco de dados SQL Server.
+    </p>
+
+    <p>
+        Isso significa que os registros de fornecedores não ficam limitados a simples endereços de texto.
+    </p>
+
+    <p>
+        Pelo contrário, os fornecedores tornam-se entidades geográficas inteligentes que podem participar de análises operacionais avançadas, otimização logística, planejamento de rotas, gestão territorial e processos de business intelligence.
+    </p>
+
+    <h2>
+        Por Que as Informações Geográficas dos Fornecedores São Extremamente Valiosas
+    </h2>
+
+    <p>
+        A maioria dos sistemas ERP tradicionais armazena apenas nomes de fornecedores, números de telefone e endereços.
+    </p>
+
+    <p>
+        No entanto, as coordenadas geográficas fornecem um nível completamente diferente de inteligência operacional.
+    </p>
+
+    <p>
+        Uma vez que os fornecedores estejam vinculados às coordenadas do mapa, as empresas podem começar a analisar suas operações espacialmente em vez de depender apenas de planilhas e relatórios textuais.
+    </p>
+
+    <p>
+        As informações geográficas dos fornecedores tornam-se um ativo estratégico para empresas modernas porque a localização afeta diretamente:
+    </p>
+
+    <ul>
+        <li>Custos de transporte</li>
+        <li>Tempos de entrega</li>
+        <li>Consumo de combustível</li>
+        <li>Eficiência do reabastecimento de estoque</li>
+        <li>Planejamento operacional</li>
+        <li>Resiliência da cadeia de suprimentos</li>
+        <li>Dependência regional de fornecedores</li>
+        <li>Planejamento de compras emergenciais</li>
+    </ul>
+
+    <h2>
+        Aplicações das Coordenadas Geográficas dos Fornecedores
+    </h2>
+
+    <p>
+        As aplicações das coordenadas geográficas dos fornecedores são enormes e continuam se expandindo à medida que as empresas se tornam cada vez mais orientadas por dados.
+    </p>
+
+    <p>
+        Algumas aplicações práticas importantes incluem:
+    </p>
+
+    <ul>
+        <li>Visualizar todos os fornecedores diretamente no mapa</li>
+        <li>Identificar os fornecedores mais próximos dos armazéns ou filiais</li>
+        <li>Otimizar a logística de compras</li>
+        <li>Reduzir despesas de transporte</li>
+        <li>Planejar rotas de entrega mais eficientes</li>
+        <li>Comparar geograficamente a proximidade dos fornecedores</li>
+        <li>Analisar a concentração de fornecedores por região</li>
+        <li>Detectar riscos geográficos no fornecimento</li>
+        <li>Apoiar operações com múltiplas filiais</li>
+        <li>Melhorar o planejamento de reabastecimento de estoque</li>
+        <li>Estudar dependências regionais de compras</li>
+        <li>Analisar a distribuição de fornecedores nos territórios</li>
+        <li>Apoiar sistemas de otimização de rotas</li>
+        <li>Melhorar operações de compras em campo</li>
+        <li>Apoiar equipes operacionais móveis</li>
+        <li>Melhorar a coordenação de remessas</li>
+        <li>Avaliar a cobertura regional do mercado</li>
+        <li>Planejar futuras expansões empresariais</li>
+        <li>Analisar geograficamente a eficiência dos suprimentos</li>
+    </ul>
+
+    <h2>
+        Bancos de Dados Geográficos e Business Intelligence
+    </h2>
+
+    <p>
+        O armazenamento das coordenadas dos fornecedores no banco de dados abre as portas para recursos avançados de business intelligence.
+    </p>
+
+    <p>
+        Bancos de dados geográficos permitem que as empresas combinem dados operacionais com análises espaciais.
+    </p>
+
+    <p>
+        Isso significa que futuros sistemas de relatórios poderão analisar:
+    </p>
+
+    <ul>
+        <li>Compras por região geográfica</li>
+        <li>Mapas de densidade de fornecedores</li>
+        <li>Custos operacionais baseados em distância</li>
+        <li>Desempenho regional dos fornecedores</li>
+        <li>Dependências geográficas da cadeia de suprimentos</li>
+        <li>Áreas de cobertura operacional</li>
+        <li>Gargalos logísticos</li>
+    </ul>
+
+    <p>
+        A análise geográfica é cada vez mais utilizada nos sistemas empresariais modernos porque os dados de localização frequentemente revelam padrões operacionais que relatórios contábeis tradicionais não conseguem identificar facilmente.
+    </p>
+
+    <h2>
+        Gestão de Fornecedores Além dos Sistemas ERP Básicos
+    </h2>
+
+    <p>
+        A maioria das plataformas de software para pequenas empresas não integra diretamente inteligência geográfica aos fluxos de trabalho de criação de fornecedores.
+    </p>
+
+    <p>
+        Este ecossistema ERP introduz uma abordagem operacional mais avançada combinando:
+    </p>
+
+    <ul>
+        <li>Banco de dados de fornecedores</li>
+        <li>Sistemas de estoque</li>
+        <li>Tecnologias cartográficas</li>
+        <li>APIs geográficas</li>
+        <li>Armazenamento SQL Server</li>
+        <li>Análise geográfica visual</li>
+        <li>Recursos de suporte logístico</li>
+    </ul>
+
+    <p>
+        Essa integração ajuda estudantes e empresas a compreender como sistemas empresariais modernos podem evoluir além dos módulos tradicionais e das tabelas estáticas.
+    </p>
+
+    <h2>
+        Importância para a Logística e as Cadeias de Suprimentos
+    </h2>
+
+    <p>
+        Em operações reais, a localização dos fornecedores afeta diretamente o desempenho da cadeia de suprimentos.
+    </p>
+
+    <p>
+        Empresas com fornecedores distribuídos geograficamente frequentemente enfrentam desafios relacionados a:
+    </p>
+
+    <ul>
+        <li>Atrasos no transporte</li>
+        <li>Altos custos logísticos</li>
+        <li>Otimização de combustível</li>
+        <li>Escassez regional de estoque</li>
+        <li>Complexidade de compras entre regiões</li>
+        <li>Situações de compras emergenciais</li>
+    </ul>
+
+    <p>
+        Ter as coordenadas dos fornecedores armazenadas no banco de dados permite que as empresas tomem decisões operacionais mais rápidas e inteligentes tanto nas operações normais quanto em cenários de emergência.
+    </p>
+
+    <h2>
+        Aprendendo Conceitos Reais de ERP Moderno
+    </h2>
+
+    <p>
+        Esta aula não trata apenas da criação de registros de fornecedores.
+    </p>
+
+    <p>
+        Ela também apresenta aos alunos importantes conceitos utilizados no desenvolvimento moderno de software empresarial:
+    </p>
+
+    <ul>
+        <li>Sistemas de Informação Geográfica (GIS)</li>
+        <li>Bancos de dados espaciais</li>
+        <li>Armazenamento de coordenadas</li>
+        <li>Integração de APIs de mapas</li>
+        <li>Business intelligence geográfica</li>
+        <li>Sistemas ERP baseados em localização</li>
+        <li>Análises operacionais espaciais</li>
+    </ul>
+
+    <p>
+        Esses conceitos estão se tornando cada vez mais importantes em logística, transporte, gestão de estoque, cadeias de suprimentos, otimização de rotas, sistemas móveis e análises empresariais.
+    </p>
+
+    <h2>
+        Guia Prático Incluído
+    </h2>
+
+    <p>
+        O curso da Udemy inclui uma demonstração prática detalhada que mostra exatamente como:
+    </p>
+
+    <ul>
+        <li>Criar fornecedores</li>
+        <li>Posicionar fornecedores no mapa</li>
+        <li>Armazenar coordenadas corretamente</li>
+        <li>Configurar a visualização geográfica</li>
+        <li>Utilizar ferramentas de integração de mapas</li>
+        <li>Trabalhar com dados geográficos de fornecedores</li>
+    </ul>
+
+    <p>
+        A aula explica todo o processo passo a passo utilizando exemplos empresariais reais dentro da aplicação.
+    </p>
+
+    <div class="section">
+
+        <h2>
+            Continue Aprendendo
+        </h2>
+
+        <p>
+            Continue explorando o programa do curso, os downloads do software, as capturas de tela e os recursos multilíngues para gestão empresarial abaixo.
+        </p>
+
+        <a href="Contenido.html" class="button">
+            Voltar ao Currículo do Curso
+        </a>
+
+    </div>
+
+    <div class="section">
+        <h2>Recursos e Navegação</h2>
+
+        <p>
+            Acesse abaixo todos os downloads do software, materiais do curso e recursos visuais.
+            Tudo faz parte de um <strong>ecossistema gratuito</strong> com suporte gratuito e melhorias contínuas impulsionadas pelo feedback dos usuários.
+        </p>
+
+        <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
+            Baixar Software
+        </a>
+
+        <a class="button" href="Contenido.html">
+            Currículo Completo
+        </a>
+
+        <a class="button" href="desktop.html">
+            Imagens da Versão Desktop
+        </a>
+
+        <a class="button" href="app.html">
+            Imagens do Aplicativo Mobile
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
+            Curso (Inglês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
+            Curso (Francês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
+            Curso (Italiano)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
+            Curso (Português)
+        </a>
+
+        <a class="button button-green" href="index.html">
+            Ir para a Página Principal
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
