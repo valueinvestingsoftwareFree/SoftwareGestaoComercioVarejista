@@ -1,138 +1,275 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição 34. Importando os Dados da Sua Empresa para o Aplicativo</title>
 
-<title>Lição 34. Importar os dados da sua empresa para o aplicativo</title>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        min-height:100vh;
+    }
 
-<h1>Lição 34. Importar os dados da sua empresa para o aplicativo</h1>
+    .container{
+        width:90%;
+        max-width:1100px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.45);
+    }
 
-<p>
-Nesta lição, você aprenderá como importar informações empresariais do sistema desktop para o aplicativo Android.
-</p>
+    h1{
+        font-size:2.4rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
 
-<p>
-O aplicativo móvel permite registrar despesas, compras, vendas, pagamentos, recebimentos, movimentações de estoque, inventários e operações de campo enquanto mantém sincronização com o ambiente empresarial principal.
-</p>
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.7rem;
+    }
 
-<p>
-Isso oferece grande flexibilidade para equipes de vendas, entregas, técnicos de campo, distribuidores, depósitos, lojas e diversos outros tipos de empresas.
-</p>
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
 
-<h2>Arquitetura local e controle dos dados</h2>
+    ul{
+        color:#d1d5db;
+        line-height:1.9;
+        font-size:1.05rem;
+        padding-left:25px;
+    }
 
-<p>
-O sistema foi projetado com uma arquitetura baseada em desktop e banco de dados local.
-</p>
+    li{
+        margin-bottom:12px;
+    }
 
-<p>
-As informações permanecem sob controle da empresa utilizando Microsoft SQL Server, reduzindo a dependência de plataformas externas e assinaturas em nuvem.
-</p>
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
 
-<h2>Instalação do aplicativo Android via USB</h2>
+    .section{
+        margin-top:45px;
+        padding-top:15px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
 
-<p>
-Uma das formas mais simples de instalar o aplicativo é utilizando um cabo USB conectado entre o computador e o dispositivo Android.
-</p>
+    .button{
+        display:inline-block;
+        margin:12px 10px 0 0;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
 
-<p>
-No curso você aprenderá como:
-</p>
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
 
-<ul>
-<li>Baixar o aplicativo Android.</li>
-<li>Conectar o dispositivo ao computador.</li>
-<li>Transferir o arquivo APK.</li>
-<li>Instalar o aplicativo manualmente.</li>
-<li>Configurar a conexão com o ambiente empresarial.</li>
-</ul>
+    .button-green{
+        background:#16a34a;
+    }
 
-<h2>Benefícios da instalação por USB</h2>
+    .button-green:hover{
+        background:#15803d;
+    }
 
-<ul>
-<li>Não depende de lojas de aplicativos.</li>
-<li>Maior controle e privacidade.</li>
-<li>Implantação rápida em dispositivos corporativos.</li>
-<li>Atualizações simplificadas.</li>
-<li>Menor dependência da internet.</li>
-<li>Ideal para ambientes empresariais internos.</li>
-</ul>
+    .important{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+    }
 
-<h2>Operações empresariais móveis</h2>
+</style>
+</head>
 
-<p>
-Após a instalação, funcionários e gestores podem registrar informações diretamente de smartphones e tablets.
-</p>
+<body>
 
-<ul>
-<li>Pedidos de clientes.</li>
-<li>Registro de despesas.</li>
-<li>Compras e pagamentos.</li>
-<li>Controle de estoque.</li>
-<li>Entregas e recebimentos.</li>
-<li>Atividades de campo.</li>
-<li>Consultas operacionais remotas.</li>
-</ul>
+<div class="container">
 
-<h2>Vantagens das operações móveis</h2>
+    <h1>Lição 34. Importando os Dados da Sua Empresa para o Aplicativo</h1>
 
-<ul>
-<li>Maior velocidade no registro de transações.</li>
-<li>Redução de erros humanos.</li>
-<li>Informações atualizadas em tempo real.</li>
-<li>Melhor controle financeiro.</li>
-<li>Maior eficiência operacional.</li>
-<li>Melhor atendimento ao cliente.</li>
-<li>Menor uso de papel.</li>
-</ul>
+    <p>
+        Nesta lição você aprenderá como importar as informações da sua empresa do sistema desktop para o aplicativo Android.
+        Isso permite registrar operações comerciais diretamente pelo celular enquanto mantém sincronização com o ambiente principal da empresa.
+    </p>
 
-<h2>Objetivos da lição</h2>
+    <p>
+        O aplicativo pode ser utilizado para registrar
+        <span class="highlight">vendas, compras, despesas, recebimentos, pagamentos, movimentações de estoque e atividades de campo</span>
+        de qualquer lugar.
+    </p>
 
-<p>
-Ao concluir esta lição, você saberá como transferir, instalar e utilizar o aplicativo Android para integrar operações empresariais móveis ao sistema principal da empresa.
-</p>
+    <div class="important">
 
-<div class="section">
+        <p>
+            O sistema utiliza uma
+            <span class="highlight">arquitetura local baseada em banco de dados próprio</span>.
+        </p>
 
-<h2>Recursos e navegação</h2>
+        <p>
+            Seus dados permanecem sob seu controle utilizando Microsoft SQL Server no ambiente desktop, sem depender de assinaturas caras de serviços em nuvem.
+        </p>
 
-<p>
-Acesse abaixo os downloads do software, materiais do curso e recursos educacionais.
-</p>
+    </div>
 
-<a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
-Baixar o software
-</a>
+    <div class="section">
 
-<a class="button" href="Contenido.html">
-Conteúdo completo
-</a>
+        <h2>Instalando o Aplicativo Android via Cabo USB</h2>
 
-<a class="button" href="desktop.html">
-Imagens da versão desktop
-</a>
+        <p>
+            Uma das formas mais simples de instalar o aplicativo Android é utilizando uma conexão USB entre o computador e o dispositivo móvel.
+        </p>
 
-<a class="button" href="app.html">
-Imagens do aplicativo móvel
-</a>
+        <ul>
+            <li>Baixar o aplicativo Android.</li>
+            <li>Conectar o dispositivo via USB.</li>
+            <li>Ativar transferência de arquivos.</li>
+            <li>Copiar o arquivo APK.</li>
+            <li>Instalar o aplicativo manualmente.</li>
+            <li>Configurar a conexão com o sistema da empresa.</li>
+        </ul>
 
-<a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
-Curso (Inglês)
-</a>
+        <p>
+            Esse método oferece maior controle para empresas que desejam distribuir aplicações internamente sem depender de lojas de aplicativos.
+        </p>
 
-<a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
-Curso (Francês)
-</a>
+    </div>
 
-<a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
-Curso (Italiano)
-</a>
+    <div class="section">
 
-<a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
-Curso (Português)
-</a>
+        <h2>Vantagens da Instalação por USB</h2>
 
-<a class="button button-green" href="index.html">
-Ir para a página principal
-</a>
+        <ul>
+            <li>Instalação rápida.</li>
+            <li>Sem dependência da internet.</li>
+            <li>Maior privacidade e controle.</li>
+            <li>Atualizações simplificadas.</li>
+            <li>Ideal para aplicações corporativas.</li>
+            <li>Fácil implantação em múltiplos dispositivos.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Operações Empresariais pelo Aplicativo</h2>
+
+        <p>
+            Após a instalação, smartphones e tablets Android tornam-se extensões do sistema empresarial.
+        </p>
+
+        <ul>
+            <li>Registrar pedidos de clientes.</li>
+            <li>Lançar despesas em campo.</li>
+            <li>Consultar estoque.</li>
+            <li>Registrar pagamentos e recebimentos.</li>
+            <li>Controlar compras de fornecedores.</li>
+            <li>Realizar inventários móveis.</li>
+            <li>Acompanhar atividades remotamente.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Por Que as Operações Móveis São Importantes</h2>
+
+        <p>
+            Registrar informações diretamente no local da operação reduz erros, elimina retrabalho e mantém dados financeiros e de estoque sempre atualizados.
+        </p>
+
+        <ul>
+            <li>Maior eficiência operacional.</li>
+            <li>Melhor controle financeiro.</li>
+            <li>Atualização de estoque em tempo real.</li>
+            <li>Melhor atendimento ao cliente.</li>
+            <li>Maior produtividade das equipes externas.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Objetivos da Lição</h2>
+
+        <p>
+            Ao final desta lição você saberá como transferir, instalar e configurar o aplicativo Android utilizando conexão USB e integrá-lo às operações reais da sua empresa.
+        </p>
+
+    </div>
+
+    <div class="section">
+        <h2>Recursos e Navegação</h2>
+
+        <p>
+            Acesse abaixo todos os downloads, materiais do curso e recursos visuais.
+            Tudo faz parte de um
+            <span class="highlight">ecossistema gratuito</span>
+            com suporte gratuito e melhorias contínuas.
+        </p>
+
+        <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
+            Baixar Software
+        </a>
+
+        <a class="button" href="Contenido.html">
+            Conteúdo Completo
+        </a>
+
+        <a class="button" href="desktop.html">
+            Imagens do Desktop
+        </a>
+
+        <a class="button" href="app.html">
+            Imagens do Aplicativo
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
+            Curso (Inglês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
+            Curso (Francês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
+            Curso (Italiano)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
+            Curso (Português)
+        </a>
+
+        <a class="button button-green" href="index.html">
+            Ir para a Página Principal
+        </a>
+
+    </div>
 
 </div>
 
+</body>
 </html>
