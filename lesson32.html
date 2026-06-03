@@ -1,234 +1,336 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição 32. O aplicativo móvel não conecta? Como resolver problemas de tempo limite</title>
 
-<title>Lição 32. O aplicativo móvel não conecta? Resolva problemas de tempo limite de conexão</title>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        min-height:100vh;
+    }
 
-<h1>Lição 32. O aplicativo móvel não conecta? Resolva problemas de tempo limite de conexão</h1>
+    .container{
+        width:90%;
+        max-width:1100px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.45);
+    }
 
-<p>
-Nesta lição, você aprenderá a resolver uma das situações práticas mais importantes em aplicativos empresariais móveis:
-os <span class="highlight">problemas de tempo limite de conexão</span>.
-</p>
+    h1{
+        font-size:2.4rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
 
-<p>
-Quando um aplicativo móvel se conecta a um banco de dados desktop ou a um servidor empresarial local, a comunicação entre os dispositivos depende de vários fatores técnicos, como estabilidade do Wi-Fi, permissões do firewall, acessibilidade do SQL Server, endereços IP, configuração da API REST, configurações do roteador, latência da internet e permissões de rede do Android.
-</p>
+    h2{
+        margin-top:45px;
+        margin-bottom:20px;
+        color:#93c5fd;
+        font-size:1.6rem;
+    }
 
-<p>
-Compreender como diagnosticar e resolver problemas de tempo limite é extremamente importante, pois as operações empresariais dependem de uma comunicação estável entre o aplicativo Android e o sistema desktop.
-</p>
+    p{
+        font-size:1.1rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
 
-<p>
-Um erro de tempo limite normalmente significa que o aplicativo móvel tentou se comunicar com o servidor ou a API, mas a resposta esperada não chegou dentro do tempo permitido.
-</p>
+    ul{
+        margin-top:10px;
+        margin-bottom:25px;
+        padding-left:25px;
+    }
 
-<p>
-Isso não significa necessariamente que o aplicativo esteja com defeito. Em muitos casos, o problema é causado por configuração incorreta, conectividade, portas bloqueadas, endereços IP incorretos, serviços inativos, redes Wi-Fi instáveis ou parâmetros incorretos da API.
-</p>
+    li{
+        font-size:1.05rem;
+        line-height:1.8;
+        color:#d1d5db;
+        margin-bottom:12px;
+    }
 
-<h2>Por que a estabilidade da conexão é importante em softwares empresariais</h2>
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
 
-<p>
-A conectividade móvel é um dos aspectos mais importantes dos sistemas empresariais modernos. Um aplicativo móvel que se conecta corretamente permite que funcionários, gestores, equipes comerciais, operadores de estoque e administradores trabalhem de diferentes locais mantendo as informações sincronizadas com o sistema desktop.
-</p>
+    .section{
+        margin-top:45px;
+        padding-top:10px;
+    }
 
-<p>
-Em ambientes empresariais reais, problemas de conectividade podem interromper:
-</p>
+    .button{
+        display:inline-block;
+        margin:10px;
+        padding:14px 28px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
 
-<ul>
-<li>Processos de registro de vendas</li>
-<li>Operações de verificação de estoque</li>
-<li>Consultas de clientes</li>
-<li>Acompanhamento de fornecedores</li>
-<li>Emissão de faturas móveis</li>
-<li>Verificação de compras</li>
-<li>Atualizações de estoque</li>
-<li>Análises de contas a pagar e receber</li>
-<li>Processos de revisão financeira</li>
-<li>Atividades de gestão de armazéns</li>
-</ul>
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
 
-<p>
-Por esse motivo, aprender a diagnosticar problemas de tempo limite torna-se uma habilidade técnica extremamente valiosa para qualquer pessoa que utilize softwares empresariais móveis profissionalmente.
-</p>
+    .button-green{
+        background:#059669;
+    }
 
-<h2>Causas comuns dos problemas de tempo limite</h2>
+    .button-green:hover{
+        background:#047857;
+    }
 
-<p>
-No curso, você aprenderá a identificar as causas mais frequentes de falhas de conexão móvel e situações de timeout.
-</p>
+    .info-box{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+        margin-bottom:30px;
+    }
 
-<ul>
-<li>Configuração incorreta do endereço IP</li>
-<li>Serviço da API REST não iniciado</li>
-<li>Serviço SQL Server desativado</li>
-<li>Firewall bloqueando solicitações de entrada</li>
-<li>Configuração incorreta da porta da API</li>
-<li>Configurações de isolamento do roteador</li>
-<li>Dispositivo Android conectado a uma rede diferente</li>
-<li>Restrições do provedor de internet</li>
-<li>Redes Wi-Fi lentas ou instáveis</li>
-<li>URLs da API incorretas</li>
-<li>Interferência de VPN</li>
-<li>Restrições de otimização de bateria</li>
-<li>Windows Defender bloqueando solicitações</li>
-<li>API REST não escutando conexões externas</li>
-<li>Endereços IP locais alterados após reinicialização do roteador</li>
-</ul>
+    .warning-box{
+        background:#3f1d1d;
+        border-left:5px solid #ef4444;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+        margin-bottom:30px;
+    }
 
-<h2>Importância de compreender a arquitetura da rede local</h2>
+</style>
+</head>
 
-<p>
-Um dos conceitos mais valiosos explicados nesta lição é como a comunicação realmente funciona dentro da rede local.
-</p>
+<body>
 
-<p>
-Muitos usuários conseguem instalar os aplicativos com sucesso, mas não compreendem totalmente como o aplicativo Android se comunica com o sistema desktop através da rede local ou da internet.
-</p>
+<div class="container">
 
-<p>
-Você aprenderá conceitos como:
-</p>
+    <h1>Lição 32. O aplicativo móvel não conecta? Como resolver problemas de tempo limite</h1>
 
-<ul>
-<li>Endereços IP locais</li>
-<li>Redes privadas</li>
-<li>Pontos de acesso da API REST</li>
-<li>Portas e canais de comunicação</li>
-<li>Acessibilidade do servidor</li>
-<li>Arquitetura de requisição e resposta</li>
-<li>Latência de rede</li>
-<li>Acesso interno versus externo</li>
-<li>Permissões de firewall</li>
-<li>Regras de comunicação do roteador</li>
-</ul>
+    <p>
+        Nesta lição você aprenderá a solucionar um dos problemas mais comuns em aplicativos empresariais móveis:
+        <span class="highlight">falhas de conexão e erros de tempo limite (timeout)</span>.
+    </p>
 
-<p>
-Esses conceitos são extremamente valiosos não apenas para este software, mas também para compreender sistemas móveis modernos em geral.
-</p>
+    <p>
+        Quando um aplicativo Android se comunica com um banco de dados local ou servidor empresarial, diversos fatores podem influenciar a conexão, incluindo Wi-Fi, firewall, SQL Server, endereços IP, APIs REST, roteadores e permissões de rede.
+    </p>
 
-<h2>Processo prático de solução de problemas</h2>
+    <p>
+        Entender como diagnosticar esses problemas é fundamental para manter a comunicação estável entre o aplicativo móvel e o sistema desktop.
+    </p>
 
-<p>
-O curso apresenta uma metodologia estruturada de diagnóstico em vez de abordagens aleatórias por tentativa e erro.
-</p>
+    <div class="info-box">
 
-<p>
-Você aprenderá a testar cada componente individualmente para identificar rapidamente a verdadeira origem do problema.
-</p>
+        <p>
+            Um erro de tempo limite normalmente significa que o aplicativo enviou uma solicitação, mas a resposta não foi recebida dentro do período esperado.
+        </p>
 
-<p>
-Por exemplo, a lição explica como:
-</p>
+        <p>
+            Na maioria dos casos, o problema está relacionado à configuração da rede, serviços parados, IP incorreto, portas bloqueadas ou parâmetros incorretos da API.
+        </p>
 
-<ul>
-<li>Verificar se a API REST está funcionando corretamente</li>
-<li>Confirmar que o dispositivo Android consegue alcançar o servidor</li>
-<li>Testar diretamente as URLs da API</li>
-<li>Verificar se as portas estão abertas</li>
-<li>Validar a acessibilidade do SQL Server</li>
-<li>Identificar bloqueios do firewall</li>
-<li>Reiniciar serviços necessários do Windows</li>
-<li>Analisar a segmentação de rede do roteador</li>
-<li>Verificar a sincronização Wi-Fi entre dispositivos</li>
-<li>Detectar problemas de configuração DNS ou IP</li>
-</ul>
+    </div>
 
-<p>
-Essa abordagem sistemática economiza muito tempo durante a resolução de problemas técnicos reais.
-</p>
+    <h2>Por que a estabilidade da conexão é importante</h2>
 
-<p>
-Muitos problemas de timeout são causados por erros de configuração muito pequenos. Um único número de porta incorreto, um endereço IP errado, uma regra de firewall desativada ou um serviço parado pode impedir que todo o aplicativo móvel funcione corretamente.
-</p>
+    <p>
+        Uma conexão confiável permite que equipes de vendas, estoque, administração e gestão trabalhem de diferentes locais mantendo os dados sincronizados com o sistema principal.
+    </p>
 
-<p>
-A lição ajuda os usuários a identificar essas situações de forma eficiente através de demonstrações práticas e objetivas.
-</p>
+    <p>
+        Problemas de conectividade podem interromper:
+    </p>
 
-<h2>Android e a verdadeira mobilidade empresarial</h2>
+    <ul>
+        <li>Registro de vendas</li>
+        <li>Consultas de estoque</li>
+        <li>Atendimento a clientes</li>
+        <li>Controle de fornecedores</li>
+        <li>Faturamento móvel</li>
+        <li>Compras e recebimentos</li>
+        <li>Atualizações de inventário</li>
+        <li>Análises financeiras</li>
+        <li>Operações de armazém</li>
+        <li>Atividades de campo</li>
+    </ul>
 
-<p>
-Os dispositivos Android são amplamente utilizados em empresas reais porque são flexíveis, acessíveis, escaláveis e disponíveis em milhares de modelos em todo o mundo.
-</p>
+    <h2>Causas comuns de timeout</h2>
 
-<p>
-A capacidade de conectar dispositivos Android a sistemas desktop de estoque, vendas, contabilidade e compras cria enormes vantagens operacionais para empresas de todos os tamanhos.
-</p>
+    <ul>
+        <li>Configuração incorreta de IP</li>
+        <li>API REST não iniciada</li>
+        <li>SQL Server desativado</li>
+        <li>Firewall bloqueando conexões</li>
+        <li>Porta da API incorreta</li>
+        <li>Configuração inadequada do roteador</li>
+        <li>Android conectado a outra rede</li>
+        <li>Internet instável</li>
+        <li>Wi-Fi lento</li>
+        <li>URL incorreta da API</li>
+        <li>VPN interferindo na comunicação</li>
+        <li>Restrições de bateria do Android</li>
+        <li>Windows Defender bloqueando solicitações</li>
+        <li>API sem acesso externo</li>
+        <li>IP local alterado após reinicialização do roteador</li>
+    </ul>
 
-<p>
-Com conectividade estável, as empresas podem:
-</p>
+    <h2>Compreendendo a arquitetura da rede</h2>
 
-<ul>
-<li>Realizar vendas móveis</li>
-<li>Verificar estoques remotamente</li>
-<li>Consultar saldos de clientes</li>
-<li>Acompanhar fornecedores em tempo real</li>
-<li>Registrar transações a partir dos armazéns</li>
-<li>Sincronizar operações de campo</li>
-<li>Gerenciar equipes distribuídas</li>
-<li>Reduzir o uso de papel</li>
-<li>Aumentar a velocidade operacional</li>
-<li>Expandir a mobilidade empresarial</li>
-</ul>
+    <p>
+        A lição também explica como ocorre a comunicação entre o Android e o sistema desktop através da rede local ou da internet.
+    </p>
 
-<h2>Filosofia orientada para operações offline</h2>
+    <ul>
+        <li>Endereços IP locais</li>
+        <li>Redes privadas</li>
+        <li>Endpoints REST</li>
+        <li>Portas de comunicação</li>
+        <li>Acessibilidade do servidor</li>
+        <li>Modelo requisição-resposta</li>
+        <li>Latência de rede</li>
+        <li>Acesso interno e externo</li>
+        <li>Permissões de firewall</li>
+        <li>Regras do roteador</li>
+    </ul>
 
-<p>
-Um dos aspectos mais fortes deste ecossistema é que o software foi projetado com foco no controle local e nas operações baseadas em desktop, em vez de obrigar as empresas a depender da nuvem.
-</p>
+    <h2>Processo prático de diagnóstico</h2>
 
-<p>
-O sistema funciona principalmente a partir do computador desktop e dos dispositivos Android, enquanto os dados permanecem sob controle direto da própria empresa.
-</p>
+    <p>
+        Em vez de tentativa e erro, o curso apresenta um método estruturado para localizar rapidamente a origem do problema.
+    </p>
 
-<p>
-Isso oferece benefícios importantes como:
-</p>
+    <ul>
+        <li>Verificar se a API REST está funcionando</li>
+        <li>Confirmar acesso do Android ao servidor</li>
+        <li>Testar URLs da API</li>
+        <li>Verificar portas abertas</li>
+        <li>Validar o acesso ao SQL Server</li>
+        <li>Identificar bloqueios do firewall</li>
+        <li>Reiniciar serviços necessários</li>
+        <li>Analisar a configuração do roteador</li>
+        <li>Confirmar sincronização Wi-Fi</li>
+        <li>Detectar problemas de DNS ou IP</li>
+    </ul>
 
-<ul>
-<li>Maior controle sobre as informações empresariais</li>
-<li>Menor dependência de assinaturas em nuvem</li>
-<li>Propriedade local do banco de dados</li>
-<li>Operações de rede local mais rápidas</li>
-<li>Maior independência operacional</li>
-<li>Menores custos recorrentes</li>
-<li>Gestão de infraestrutura mais flexível</li>
-</ul>
+    <div class="warning-box">
 
-<h2>Demonstração prática completa</h2>
+        <p>
+            Muitos erros de timeout são causados por pequenos detalhes de configuração. Uma única porta incorreta, um IP errado ou um serviço parado pode impedir toda a comunicação do aplicativo móvel.
+        </p>
 
-<p>
-No curso da Udemy, você encontrará uma demonstração prática completa explicando como resolver problemas de tempo limite e conexão passo a passo utilizando exemplos e cenários reais.
-</p>
+        <p>
+            Esta lição mostra como identificar esses problemas de forma rápida e prática.
+        </p>
 
-<p>
-A lição foi desenvolvida não apenas para solucionar problemas imediatos, mas também para ajudar os usuários a compreender os conceitos técnicos fundamentais que permitem que a comunicação móvel empresarial funcione corretamente.
-</p>
+    </div>
 
-<h2>Recursos e navegação</h2>
+    <h2>Android e mobilidade empresarial</h2>
 
-<p>
-Acesse abaixo todos os downloads do software, materiais do curso, capturas de tela e recursos de gestão empresarial.
-Tudo faz parte de um ecossistema em constante evolução focado em soluções práticas para desktop e Android.
-</p>
+    <p>
+        Dispositivos Android permitem registrar vendas, consultar estoques, acompanhar clientes e executar operações de campo em tempo real.
+    </p>
 
-Baixar o software
+    <ul>
+        <li>Realizar vendas móveis</li>
+        <li>Consultar estoque remotamente</li>
+        <li>Verificar saldos de clientes</li>
+        <li>Acompanhar fornecedores</li>
+        <li>Registrar operações em depósitos</li>
+        <li>Sincronizar equipes de campo</li>
+        <li>Reduzir papelada</li>
+        <li>Aumentar a produtividade</li>
+    </ul>
 
-Conteúdo completo
+    <h2>Filosofia orientada ao controle local</h2>
 
-Imagens da versão desktop
+    <p>
+        Este ecossistema foi projetado para funcionar principalmente com infraestrutura local, permitindo que a empresa mantenha controle direto sobre seus dados e operações.
+    </p>
 
-Imagens do aplicativo móvel
+    <ul>
+        <li>Maior controle das informações</li>
+        <li>Menor dependência da nuvem</li>
+        <li>Banco de dados sob propriedade da empresa</li>
+        <li>Operações locais mais rápidas</li>
+        <li>Maior independência operacional</li>
+        <li>Redução de custos recorrentes</li>
+        <li>Infraestrutura flexível</li>
+    </ul>
 
-Curso (Inglês)
+    <h2>Demonstração prática completa</h2>
 
-Curso (Francês)
+    <p>
+        No curso da Udemy você verá uma demonstração passo a passo mostrando como identificar e corrigir problemas de conexão e timeout utilizando cenários reais.
+    </p>
 
-Curso (Italiano)
+    <p>
+        O objetivo não é apenas resolver problemas imediatos, mas também compreender os conceitos técnicos que tornam possível a comunicação entre sistemas empresariais e dispositivos móveis.
+    </p>
 
-Curso (Português)
+    <div class="section">
 
-Ir para a página principal
+        <h2>Recursos e navegação</h2>
+
+        <p>
+            Acesse abaixo todos os downloads do software, materiais do curso, capturas de tela e recursos de gestão empresarial.
+            Todo o ecossistema evolui continuamente com foco em soluções práticas para desktop e Android.
+        </p>
+
+        <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
+            Baixar o software
+        </a>
+
+        <a class="button" href="Contenido.html">
+            Conteúdo completo
+        </a>
+
+        <a class="button" href="desktop.html">
+            Imagens da versão desktop
+        </a>
+
+        <a class="button" href="app.html">
+            Imagens do aplicativo móvel
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
+            Curso (Inglês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
+            Curso (Francês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
+            Curso (Italiano)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
+            Curso (Português)
+        </a>
+
+        <a class="button button-green" href="index.html">
+            Ir para a página principal
+        </a>
+
+    </div>
+
+</div>
+
+</body>
 </html>
