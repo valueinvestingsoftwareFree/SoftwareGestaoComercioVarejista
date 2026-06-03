@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição 43. Gerar um Backup do Banco de Dados SQLite</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+    }
+
+    .wrapper{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        padding:40px 0;
+    }
+
+    .container{
+        width:90%;
+        max-width:1100px;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.45);
+    }
+
+    h1{
+        font-size:2.4rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
+
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.6rem;
+    }
+
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
+
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
+
+    .important{
+        color:#86efac;
+        font-weight:bold;
+    }
+
+    ul{
+        margin-top:10px;
+        margin-bottom:25px;
+        padding-left:25px;
+    }
+
+    li{
+        margin-bottom:14px;
+        color:#d1d5db;
+        line-height:1.8;
+        font-size:1.04rem;
+    }
+
+    .section{
+        margin-top:40px;
+        padding-top:20px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .buttons{
+        margin-top:35px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:16px;
+    }
+
+    .button{
+        display:inline-block;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
+
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
+
+    .button-green{
+        background:#16a34a;
+    }
+
+    .button-green:hover{
+        background:#15803d;
+    }
+
+    .note-box{
+        background:#0b1220;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+        margin-bottom:30px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="container">
+
+    <h1>Lição 43. Gerar um Backup do Banco de Dados SQLite</h1>
+
+    <p>
+        Nesta lição, você aprenderá como gerar backups seguros do
+        <span class="highlight">banco de dados SQLite utilizado pelo aplicativo móvel Android</span>.
+    </p>
+
+    <p>
+        A geração de backups de banco de dados é uma das responsabilidades operacionais e técnicas mais importantes em qualquer sistema empresarial sério.
+    </p>
+
+    <p>
+        O banco de dados SQLite do aplicativo móvel pode conter informações operacionais extremamente valiosas, incluindo vendas, compras, despesas, registros de estoque, saldos de clientes, informações de fornecedores, recebimentos, atividades financeiras, catálogos de produtos, operações de rotas e dados históricos da empresa.
+    </p>
+
+    <div class="note-box">
+        <p>
+            Um dispositivo móvel pode ser perdido, danificado, roubado, formatado, corrompido ou fisicamente destruído a qualquer momento.
+        </p>
+
+        <p>
+            Sem uma estratégia adequada de backup, a empresa pode perder
+            <span class="important">meses ou até anos de informações operacionais</span>.
+        </p>
+
+        <p>
+            Esta lição explica como proteger a continuidade dos negócios realizando backups seguros do banco de dados SQLite utilizado pelo aplicativo Android.
+        </p>
+    </div>
+
+    <div class="section">
+
+        <h2>Por Que os Backups do Banco de Dados SQLite São Extremamente Importantes</h2>
+
+        <p>
+            O banco de dados SQLite atua como o mecanismo central de armazenamento local do aplicativo Android.
+        </p>
+
+        <p>
+            Toda atividade operacional importante realizada a partir do dispositivo móvel pode acabar sendo armazenada em tabelas SQLite.
+        </p>
+
+        <p>
+            Perder o banco de dados pode significar perder:
+        </p>
+
+        <ul>
+            <li>Histórico de vendas</li>
+            <li>Registros de clientes</li>
+            <li>Informações de fornecedores</li>
+            <li>Movimentações de estoque</li>
+            <li>Registros de despesas</li>
+            <li>Histórico de compras</li>
+            <li>Recebimentos e pagamentos</li>
+            <li>Atividades de rotas</li>
+            <li>Estatísticas da empresa</li>
+            <li>Observações operacionais</li>
+            <li>Fotografias e referências</li>
+            <li>Transações realizadas offline</li>
+            <li>Cálculos financeiros</li>
+            <li>Análises históricas</li>
+        </ul>
+
+        <p>
+            Os backups não são opcionais em sistemas profissionais.
+            Eles constituem um mecanismo essencial de proteção contra desastres operacionais.
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Entendendo o SQLite no Aplicativo Móvel</h2>
+
+        <p>
+            SQLite é um mecanismo leve de banco de dados relacional incorporado diretamente aos aplicativos Android.
+        </p>
+
+        <p>
+            Diferentemente dos bancos de dados em nuvem, o SQLite armazena as informações localmente dentro do próprio dispositivo móvel.
+        </p>
+
+        <p>
+            Essa arquitetura oferece vantagens importantes:
+        </p>
+
+        <ul>
+            <li>Operação orientada ao modo offline</li>
+            <li>Consultas locais rápidas</li>
+            <li>Alto desempenho em dispositivos móveis</li>
+            <li>Menor dependência da internet</li>
+            <li>Operação empresarial portátil</li>
+            <li>Armazenamento local eficiente</li>
+            <li>Independência operacional</li>
+        </ul>
+
+        <p>
+            No entanto, como o banco de dados existe fisicamente dentro do smartphone ou tablet, a geração correta de backups torna-se absolutamente essencial.
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Riscos de Não Realizar Backup do Banco de Dados Móvel</h2>
+
+        <p>
+            Muitas empresas subestimam a importância dos backups de bancos de dados móveis até que uma perda de dados aconteça.
+        </p>
+
+        <p>
+            Os riscos operacionais reais incluem:
+        </p>
+
+        <ul>
+            <li>Roubo do telefone</li>
+            <li>Falha de hardware</li>
+            <li>Exclusão acidental</li>
+            <li>Formatação do dispositivo</li>
+            <li>Corrupção do sistema operacional</li>
+            <li>Corrupção do aplicativo</li>
+            <li>Danos ao armazenamento</li>
+            <li>Falhas de sincronização</li>
+            <li>Erros operacionais humanos</li>
+            <li>Infecções por malware</li>
+            <li>Destruição física do dispositivo</li>
+            <li>Danos causados por água ou impactos</li>
+        </ul>
+
+        <p>
+            Sem backups, a recuperação das informações operacionais pode se tornar impossível.
+        </p>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Quais Informações Podem Ser Preservadas por Meio dos Backups</h2>
+
+        <p>
+            O processo de backup pode preservar o estado operacional completo do aplicativo móvel.
+        </p>
+
+        <p>
+            Dependendo da arquitetura do aplicativo, o backup SQLite pode conter:
+        </p>
+
+        <ul>
+            <li>Bancos de dados completos de vendas</li>
+            <li>Registros de estoque</li>
+            <li>Tabelas de despesas</li>
+            <li>Saldos de clientes</li>
+            <li>Operações de fornecedores</li>
+            <li>Histórico de recebimentos</li>
+            <li>Movimentações de caixa</li>
+            <li>Preferências do usuário</li>
+            <li>Configurações do aplicativo</li>
+            <li>Histórico de sincronizações</li>
+            <li>Registros operacionais offline</li>
+            <li>Dados analíticos da empresa</li>
+            <li>Informações financeiras históricas</li>
+        </ul>
+
+        <p>
+            Isso permite que as empresas restaurem rapidamente suas operações em caso de problemas com um dispositivo.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
