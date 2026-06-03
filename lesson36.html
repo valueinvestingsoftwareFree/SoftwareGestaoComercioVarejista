@@ -1,48 +1,326 @@
-<div class="section">
-    <h2>Recursos e navegação</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição 36. Como criar um novo item no aplicativo móvel</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        min-height:100vh;
+    }
+
+    .container{
+        width:90%;
+        max-width:1150px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.45);
+    }
+
+    h1{
+        font-size:2.4rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
+
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.7rem;
+    }
+
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
+
+    ul{
+        color:#d1d5db;
+        line-height:1.9;
+        font-size:1.05rem;
+        padding-left:25px;
+    }
+
+    li{
+        margin-bottom:12px;
+    }
+
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
+
+    .section{
+        margin-top:45px;
+        padding-top:15px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .button{
+        display:inline-block;
+        margin:12px 10px 0 0;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
+
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
+
+    .button-green{
+        background:#16a34a;
+    }
+
+    .button-green:hover{
+        background:#15803d;
+    }
+
+    .important{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Lição 36. Como criar um novo item no aplicativo móvel</h1>
 
     <p>
-        Acesse abaixo todos os downloads de software, materiais do curso,
-        capturas de tela e recursos visuais.
-        Tudo faz parte de um
-        <span class="highlight">ecossistema gratuito</span>
-        com suporte gratuito e melhorias contínuas baseadas no feedback de usuários e empresas reais.
+        Nesta lição você aprenderá a criar
+        <span class="highlight">novos produtos e itens de estoque diretamente pelo aplicativo Android</span>,
+        permitindo atualizar o inventário da empresa em tempo real a partir de depósitos, lojas, fornecedores e operações de campo.
     </p>
 
-    <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
-        Baixar o software
-    </a>
+    <div class="important">
 
-    <a class="button" href="Contenido.html">
-        Conteúdo completo do curso
-    </a>
+        <p>
+            Um dos recursos mais importantes é que
+            <span class="highlight">você pode tirar fotos do produto diretamente com a câmera do dispositivo Android</span>.
+        </p>
 
-    <a class="button" href="desktop.html">
-        Imagens da versão desktop
-    </a>
+        <p>
+            A imagem é armazenada junto ao item, facilitando a identificação visual em todo o sistema.
+        </p>
 
-    <a class="button" href="app.html">
-        Imagens do aplicativo móvel
-    </a>
+    </div>
 
-    <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
-        Curso (Inglês)
-    </a>
+    <div class="section">
 
-    <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
-        Curso (Francês)
-    </a>
+        <h2>Por que criar itens pelo celular?</h2>
 
-    <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
-        Curso (Italiano)
-    </a>
+        <p>
+            Novos produtos podem surgir a qualquer momento durante as operações diárias. O cadastro móvel elimina atrasos, reduz erros e permite registrar produtos imediatamente.
+        </p>
 
-    <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
-        Curso (Português)
-    </a>
+        <ul>
+            <li>Maior agilidade operacional.</li>
+            <li>Menos retrabalho administrativo.</li>
+            <li>Redução de erros de digitação.</li>
+            <li>Atualização instantânea do inventário.</li>
+            <li>Maior precisão dos dados.</li>
+        </ul>
 
-    <a class="button button-green" href="index.html">
-        Ir para a página principal
-    </a>
+    </div>
+
+    <div class="section">
+
+        <h2>Informações que podem ser registradas</h2>
+
+        <ul>
+            <li>Nome do produto.</li>
+            <li>Código interno.</li>
+            <li>Código de barras.</li>
+            <li>Categorias.</li>
+            <li>Preço de compra.</li>
+            <li>Preço de venda.</li>
+            <li>Custos.</li>
+            <li>Configurações fiscais.</li>
+            <li>Unidades de medida.</li>
+            <li>Referências de fornecedores.</li>
+            <li>Fotos do produto.</li>
+            <li>Observações.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Importância das fotos dos produtos</h2>
+
+        <p>
+            As imagens ajudam a identificar rapidamente os produtos, reduzir erros e melhorar processos de vendas, compras, estoque e treinamento de funcionários.
+        </p>
+
+        <ul>
+            <li>Identificação visual.</li>
+            <li>Redução de erros.</li>
+            <li>Apoio ao estoque.</li>
+            <li>Catálogos visuais.</li>
+            <li>Melhor experiência para clientes.</li>
+            <li>Verificação de entregas.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Casos de uso</h2>
+
+        <ul>
+            <li>Depósitos registrando novos produtos.</li>
+            <li>Lojas recebendo mercadorias.</li>
+            <li>Representantes comerciais em visitas.</li>
+            <li>Restaurantes cadastrando ingredientes.</li>
+            <li>Empresas de construção registrando materiais.</li>
+            <li>Distribuidoras ampliando catálogos.</li>
+            <li>Técnicos registrando peças de reposição.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Precisão e qualidade dos dados</h2>
+
+        <p>
+            Registrar produtos diretamente na origem reduz riscos de itens duplicados, informações incorretas e inconsistências de estoque.
+        </p>
+
+        <ul>
+            <li>Menos produtos ausentes.</li>
+            <li>Menos duplicidades.</li>
+            <li>Melhor controle de estoque.</li>
+            <li>Menos erros manuais.</li>
+            <li>Informações mais confiáveis.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Integração com compras, vendas e estoque</h2>
+
+        <p>
+            Após criado, o item passa a fazer parte de todo o ecossistema empresarial.
+        </p>
+
+        <ul>
+            <li>Compras.</li>
+            <li>Vendas.</li>
+            <li>Movimentações de estoque.</li>
+            <li>Listas de preços.</li>
+            <li>Operações com fornecedores.</li>
+            <li>Análises de rentabilidade.</li>
+            <li>Relatórios comerciais.</li>
+            <li>Operações com código de barras.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Android e mobilidade empresarial</h2>
+
+        <p>
+            Dispositivos Android oferecem recursos importantes para operações móveis de estoque.
+        </p>
+
+        <ul>
+            <li>Câmera integrada.</li>
+            <li>GPS.</li>
+            <li>Tela sensível ao toque.</li>
+            <li>Conectividade móvel.</li>
+            <li>Leitura de códigos de barras.</li>
+            <li>Modo offline.</li>
+        </ul>
+
+    </div>
+
+    <div class="section">
+
+        <h2>Objetivos da lição</h2>
+
+        <p>
+            Ao final desta aula você saberá criar produtos, registrar imagens e utilizar o cadastro móvel para aumentar a velocidade, a precisão e a flexibilidade das operações empresariais.
+        </p>
+
+    </div>
+
+    <div class="section">
+        <h2>Recursos e Navegação</h2>
+
+        <p>
+            Acesse abaixo os downloads, materiais do curso e recursos visuais.
+            Tudo faz parte de um
+            <span class="highlight">ecossistema gratuito</span>
+            com suporte gratuito e melhorias contínuas.
+        </p>
+
+        <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
+            Baixar o Software
+        </a>
+
+        <a class="button" href="Contenido.html">
+            Programa Completo
+        </a>
+
+        <a class="button" href="desktop.html">
+            Imagens Desktop
+        </a>
+
+        <a class="button" href="app.html">
+            Imagens do Aplicativo Móvel
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
+            Curso (Inglês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
+            Curso (Francês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
+            Curso (Italiano)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
+            Curso (Português)
+        </a>
+
+        <a class="button button-green" href="index.html">
+            Ir para a Página Principal
+        </a>
+
+    </div>
 
 </div>
+
+</body>
+</html>
