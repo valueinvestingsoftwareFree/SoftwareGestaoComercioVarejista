@@ -4,6 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lição 39. Registro de Pagamentos e Recebimentos no Aplicativo Mobile</title>
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        min-height:100vh;
+    }
+
+    .container{
+        width:90%;
+        max-width:1250px;
+        margin:40px auto;
+        background:#111827;
+        padding:55px;
+        border-radius:22px;
+        box-shadow:0 0 35px rgba(0,0,0,0.45);
+    }
+
+    h1{
+        font-size:2.7rem;
+        margin-bottom:35px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
+
+    h2{
+        color:#93c5fd;
+        margin-top:50px;
+        margin-bottom:22px;
+        font-size:1.7rem;
+    }
+
+    p{
+        font-size:1.12rem;
+        line-height:1.95;
+        color:#d1d5db;
+        margin-bottom:24px;
+    }
+
+    ul{
+        color:#d1d5db;
+        line-height:1.9;
+        font-size:1.08rem;
+        padding-left:28px;
+    }
+
+    li{
+        margin-bottom:12px;
+    }
+
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
+
+    .section{
+        margin-top:45px;
+    }
+
+    .button{
+        display:inline-block;
+        margin:12px 10px 0 0;
+        padding:14px 28px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
+
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
+
+    .button-green{
+        background:#059669;
+    }
+
+    .button-green:hover{
+        background:#047857;
+    }
+
+    .note{
+        background:#0b1220;
+        border-left:5px solid #60a5fa;
+        padding:28px;
+        border-radius:14px;
+        margin-top:35px;
+    }
+
+</style>
 </head>
 
 <body>
@@ -13,17 +110,17 @@
     <h1>Lição 39. Registro de Pagamentos e Recebimentos no Aplicativo Mobile</h1>
 
     <p>
-        Nesta lição você aprenderá como registrar
+        Nesta lição, você aprenderá como registrar
         <span class="highlight">pagamentos e recebimentos diretamente pelo aplicativo Android</span>,
-        transformando o dispositivo móvel em uma poderosa ferramenta financeira para operações externas.
+        transformando o dispositivo móvel em uma ferramenta financeira completa para operações de campo, capaz de gerenciar recebimentos de clientes, pagamentos a fornecedores, saldos de contas e atividades financeiras em tempo real, diretamente fora do escritório.
     </p>
 
     <p>
-        Empresas modernas raramente operam exclusivamente dentro de um escritório. Vendedores visitam clientes, equipes de cobrança realizam recebimentos, supervisores acompanham rotas e fornecedores recebem pagamentos presencialmente.
+        As empresas modernas raramente operam totalmente a partir de um escritório. Vendedores estão constantemente em movimento, agentes de cobrança visitam clientes, supervisores acompanham rotas, fornecedores recebem pagamentos presencialmente e equipes de campo lidam com transações financeiras durante todo o dia.
     </p>
 
     <p>
-        O aplicativo Android permite registrar todas essas movimentações financeiras em tempo real, aumentando a precisão contábil, a visibilidade operacional e o controle financeiro da empresa.
+        O aplicativo Android permite registrar imediatamente todos esses movimentos financeiros no momento em que ocorrem, melhorando significativamente a precisão contábil, a visibilidade operacional, o atendimento ao cliente e o controle do negócio.
     </p>
 
     <div class="section">
@@ -31,61 +128,67 @@
         <h2>A Importância do Registro Financeiro em Tempo Real</h2>
 
         <p>
-            Um dos maiores desafios operacionais é a diferença entre o momento em que o dinheiro circula e o momento em que a transação é registrada no sistema.
+            Um dos maiores problemas operacionais em muitas empresas é o intervalo entre o momento em que o dinheiro circula e o momento em que a transação é finalmente registrada no sistema.
         </p>
 
         <p>
-            Métodos tradicionais podem gerar:
+            Métodos tradicionais baseados em papel frequentemente criam situações em que:
         </p>
 
         <ul>
-            <li>Recebimentos esquecidos.</li>
-            <li>Comprovantes perdidos.</li>
-            <li>Saldos incorretos de clientes.</li>
-            <li>Dívidas de fornecedores mal controladas.</li>
-            <li>Baixa visibilidade do fluxo de caixa.</li>
-            <li>Diferenças contábeis.</li>
-            <li>Erros de digitação ao registrar posteriormente no escritório.</li>
-            <li>Informações desatualizadas para os gestores.</li>
+            <li>Recebimentos são esquecidos.</li>
+            <li>Comprovantes são perdidos.</li>
+            <li>Saldos de clientes tornam-se incorretos.</li>
+            <li>Dívidas com fornecedores são mal compreendidas.</li>
+            <li>A visibilidade do fluxo de caixa é atrasada.</li>
+            <li>Surgem divergências contábeis.</li>
+            <li>As equipes de cobrança perdem controle operacional.</li>
+            <li>Os gestores recebem informações desatualizadas.</li>
+            <li>Os clientes contestam seus saldos.</li>
+            <li>O lançamento manual posterior gera erros de transcrição.</li>
         </ul>
 
         <p>
-            O registro financeiro móvel elimina esses problemas ao permitir que pagamentos e recebimentos sejam registrados imediatamente durante a interação com clientes e fornecedores.
+            O registro financeiro móvel resolve esses problemas permitindo registrar imediatamente pagamentos e recebimentos pelo dispositivo Android enquanto se interage diretamente com o cliente ou fornecedor.
+        </p>
+
+        <p>
+            Isso cria um ambiente operacional muito mais dinâmico e profissional.
         </p>
 
     </div>
 
     <div class="section">
 
-        <h2>Recebimentos de Clientes em Campo</h2>
+        <h2>Registro de Recebimentos de Clientes em Campo</h2>
 
         <p>
-            Uma das funcionalidades mais importantes é registrar
-            <span class="highlight">recebimentos diretamente durante visitas aos clientes</span>.
+            Uma das funcionalidades móveis mais poderosas é a capacidade de registrar
+            <span class="highlight">recebimentos de clientes diretamente durante visitas em campo</span>.
         </p>
 
         <p>
-            Equipes de cobrança e vendedores podem consultar saldos pendentes, verificar faturas em aberto, receber pagamentos e registrar tudo instantaneamente no dispositivo móvel.
+            Equipes de cobrança ou representantes comerciais podem visitar clientes, consultar saldos pendentes, confirmar faturas em aberto, receber pagamentos e registrar imediatamente a transação pelo dispositivo móvel.
         </p>
 
         <p>
-            Benefícios principais:
+            Isso oferece grandes vantagens operacionais:
         </p>
 
         <ul>
-            <li>Atualização imediata dos saldos dos clientes.</li>
-            <li>Histórico financeiro mais preciso.</li>
-            <li>Melhor acompanhamento das contas a receber.</li>
-            <li>Sincronização contábil em tempo real.</li>
-            <li>Maior visibilidade do fluxo de caixa.</li>
-            <li>Confirmação mais rápida para os clientes.</li>
-            <li>Redução de atrasos administrativos.</li>
-            <li>Rotas de cobrança mais eficientes.</li>
-            <li>Maior transparência financeira.</li>
+            <li>Os saldos dos clientes são atualizados imediatamente.</li>
+            <li>O histórico de recebimentos permanece preciso.</li>
+            <li>As dívidas pendentes tornam-se mais fáceis de monitorar.</li>
+            <li>As informações contábeis permanecem sincronizadas.</li>
+            <li>A visibilidade do fluxo de caixa melhora instantaneamente.</li>
+            <li>Os clientes recebem confirmação mais rapidamente.</li>
+            <li>Os atrasos administrativos são reduzidos.</li>
+            <li>As rotas de cobrança tornam-se mais eficientes.</li>
+            <li>As empresas ganham maior transparência financeira.</li>
         </ul>
 
         <p>
-            Em vez de retornar ao escritório para registrar pagamentos manualmente, a transação passa a fazer parte do sistema imediatamente após ser realizada.
+            Em vez de retornar ao escritório no final do dia para inserir manualmente as informações de pagamento, a transação passa imediatamente a fazer parte do sistema da empresa.
         </p>
 
     </div>
