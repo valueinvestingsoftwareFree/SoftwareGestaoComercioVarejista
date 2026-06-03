@@ -1,234 +1,275 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lição 35. Como cadastrar clientes e fornecedores no aplicativo móvel</title>
 
-<title>Lição 35. Como registrar clientes e fornecedores no aplicativo móvel</title>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family:Arial, sans-serif;
+        background:#0f172a;
+        color:white;
+        min-height:100vh;
+    }
 
-<h1>Lição 35. Como registrar clientes e fornecedores no aplicativo móvel</h1>
+    .container{
+        width:90%;
+        max-width:1150px;
+        margin:40px auto;
+        background:#111827;
+        padding:50px;
+        border-radius:18px;
+        box-shadow:0 0 25px rgba(0,0,0,0.45);
+    }
 
-<p>
-Nesta lição, você aprenderá como criar e gerenciar
-<span class="highlight">clientes e fornecedores diretamente pelo aplicativo Android</span>.
-</p>
+    h1{
+        font-size:2.4rem;
+        margin-bottom:30px;
+        color:#60a5fa;
+        line-height:1.4;
+        text-align:center;
+    }
 
-<p>
-Uma das funcionalidades mais poderosas do sistema móvel é a capacidade de registrar contatos empresariais diretamente em campo enquanto funcionários, representantes comerciais ou proprietários visitam clientes e fornecedores.
-</p>
+    h2{
+        color:#93c5fd;
+        margin-top:45px;
+        margin-bottom:20px;
+        font-size:1.7rem;
+    }
 
-<p>
-Em vez de esperar retornar ao escritório, informações importantes podem ser capturadas imediatamente usando o dispositivo Android, incluindo dados de contato, coordenadas geográficas, fotografias, endereços, observações comerciais e detalhes operacionais.
-</p>
+    p{
+        font-size:1.08rem;
+        line-height:1.9;
+        color:#d1d5db;
+        margin-bottom:22px;
+    }
 
-<p>
-Durante o processo de cadastro, o aplicativo pode capturar automaticamente as
-<span class="highlight">coordenadas GPS</span>
-dos clientes e fornecedores diretamente do dispositivo Android.
-</p>
+    ul{
+        color:#d1d5db;
+        line-height:1.9;
+        font-size:1.05rem;
+        padding-left:25px;
+    }
 
-<p>
-O sistema também pode armazenar
-<span class="highlight">fotografias</span>
-tiradas pela câmera do dispositivo, criando um banco de dados empresarial muito mais rico e útil.
-</p>
+    li{
+        margin-bottom:12px;
+    }
 
-<h2>Por que as coordenadas geográficas são tão valiosas</h2>
+    .highlight{
+        color:#93c5fd;
+        font-weight:bold;
+    }
 
-<p>
-Quando clientes e fornecedores são cadastrados com coordenadas geográficas, a empresa obtém um nível muito mais avançado de inteligência operacional.
-</p>
+    .section{
+        margin-top:45px;
+        padding-top:15px;
+        border-top:1px solid rgba(255,255,255,0.08);
+    }
 
-<p>
-Essas informações podem ser utilizadas para otimização de rotas, análise territorial, logística, entregas, relatórios geográficos, cobertura comercial e visualização da distribuição de clientes.
-</p>
+    .button{
+        display:inline-block;
+        margin:12px 10px 0 0;
+        padding:14px 26px;
+        background:#2563eb;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-size:1rem;
+        transition:0.3s;
+    }
 
-<p>
-Isso transforma o banco de dados de uma simples lista de contatos em uma
-<span class="highlight">verdadeira rede empresarial geográfica</span>.
-</p>
+    .button:hover{
+        background:#1d4ed8;
+        transform:translateY(-2px);
+    }
 
-<p>
-Cada cliente e fornecedor passa a fazer parte de um sistema operacional que pode ser analisado visualmente em mapas.
-</p>
+    .button-green{
+        background:#16a34a;
+    }
 
-<h2>Aplicações das coordenadas geográficas</h2>
+    .button-green:hover{
+        background:#15803d;
+    }
 
-<ul>
-<li>Criar rotas de vendas otimizadas.</li>
-<li>Planejar operações de entrega.</li>
-<li>Reduzir custos de transporte.</li>
-<li>Analisar áreas de concentração de clientes.</li>
-<li>Identificar regiões com potencial de expansão.</li>
-<li>Melhorar a coordenação de equipes externas.</li>
-<li>Gerenciar proximidade de fornecedores.</li>
-<li>Visualizar clientes diretamente em mapas.</li>
-<li>Criar mapas de calor geográficos.</li>
-<li>Aumentar a eficiência das entregas.</li>
-<li>Reduzir o consumo de combustível.</li>
-<li>Analisar a penetração de mercado.</li>
-<li>Gerenciar territórios comerciais.</li>
-<li>Melhorar o planejamento de visitas.</li>
-<li>Monitorar atividades de campo.</li>
-<li>Criar territórios inteligentes de vendas.</li>
-<li>Melhorar respostas operacionais de emergência.</li>
-<li>Planejar a distribuição de estoques.</li>
-<li>Analisar comportamentos regionais de compra.</li>
-</ul>
+    .important{
+        background:#1e293b;
+        border-left:5px solid #60a5fa;
+        padding:25px;
+        border-radius:12px;
+        margin-top:30px;
+    }
 
-<p>
-Empresas que combinam dados operacionais com informações geográficas frequentemente obtêm vantagens estratégicas significativas.
-</p>
+</style>
+</head>
 
-<h2>A importância das fotografias</h2>
+<body>
 
-<p>
-A possibilidade de capturar fotografias durante o cadastro adiciona uma camada extremamente valiosa de informação operacional.
-</p>
+<div class="container">
 
-<p>
-As fotografias ajudam a identificar locais visualmente, verificar empresas, documentar instalações, confirmar entregas e melhorar o reconhecimento dos clientes.
-</p>
+    <h1>Lição 35. Como cadastrar clientes e fornecedores no aplicativo móvel</h1>
 
-<p>
-Isso é especialmente útil para empresas com grandes bases de clientes, equipes externas, operações técnicas, manutenção, vendas itinerantes e gestão de fornecedores.
-</p>
+    <p>
+        Nesta lição você aprenderá a cadastrar e gerenciar
+        <span class="highlight">clientes e fornecedores diretamente pelo aplicativo Android</span>,
+        permitindo registrar informações comerciais em tempo real durante visitas, entregas e operações de campo.
+    </p>
 
-<p>
-Em vez de depender apenas de descrições escritas, os colaboradores podem identificar locais e parceiros comerciais diretamente pelas imagens armazenadas.
-</p>
+    <p>
+        Em vez de esperar o retorno ao escritório, os dados podem ser registrados imediatamente pelo dispositivo móvel, incluindo contatos, endereços, observações, localização GPS e fotografias.
+    </p>
 
-<h2>Aplicações das fotografias</h2>
+    <div class="important">
 
-<ul>
-<li>Identificar entradas de lojas e edifícios.</li>
-<li>Reconhecer clientes mais rapidamente.</li>
-<li>Documentar instalações de fornecedores.</li>
-<li>Verificar a legitimidade de empresas.</li>
-<li>Apoiar operações de entrega.</li>
-<li>Auxiliar novos funcionários.</li>
-<li>Documentar condições operacionais.</li>
-<li>Apoiar visitas técnicas e de manutenção.</li>
-<li>Melhorar a eficiência das rotas.</li>
-<li>Criar registros empresariais visuais.</li>
-<li>Facilitar auditorias e inspeções.</li>
-<li>Acompanhar mudanças de infraestrutura.</li>
-<li>Apoiar o atendimento ao cliente.</li>
-<li>Reduzir confusões entre locais semelhantes.</li>
-<li>Melhorar o relacionamento comercial.</li>
-</ul>
+        <p>
+            O aplicativo pode capturar automaticamente as
+            <span class="highlight">coordenadas GPS</span>
+            e armazenar
+            <span class="highlight">fotografias</span>
+            tiradas pela câmera do dispositivo.
+        </p>
 
-<h2>Como o cadastro móvel transforma as operações</h2>
+        <p>
+            Isso cria um banco de dados comercial mais completo, visual e útil para futuras análises e operações.
+        </p>
 
-<p>
-Sistemas tradicionais frequentemente exigem que as informações sejam anotadas em papel e posteriormente digitadas no escritório.
-</p>
+    </div>
 
-<p>
-O cadastro móvel elimina esse atraso permitindo registrar todas as informações imediatamente na origem.
-</p>
+    <div class="section">
 
-<p>
-Isso reduz erros de transcrição, melhora a velocidade operacional, aumenta a qualidade dos dados e ajuda a manter registros empresariais mais completos e precisos.
-</p>
+        <h2>O valor das coordenadas geográficas</h2>
 
-<p>
-A criação de clientes e fornecedores em tempo real é especialmente valiosa para:
-</p>
+        <p>
+            Registrar clientes e fornecedores com localização geográfica permite criar rotas inteligentes, melhorar entregas, analisar territórios e visualizar a distribuição dos parceiros comerciais em mapas.
+        </p>
 
-<ul>
-<li>Representantes comerciais.</li>
-<li>Empresas de distribuição.</li>
-<li>Técnicos de campo.</li>
-<li>Empresas de entrega.</li>
-<li>Empresas de construção.</li>
-<li>Prestadores de serviços.</li>
-<li>Distribuidores atacadistas.</li>
-<li>Redes de lojas.</li>
-<li>Vendedores externos.</li>
-<li>Operações comerciais territoriais.</li>
-<li>Equipes de inventário em campo.</li>
-<li>Empresas de gestão de rotas.</li>
-</ul>
+        <ul>
+            <li>Otimização de rotas.</li>
+            <li>Planejamento logístico.</li>
+            <li>Redução de custos de transporte.</li>
+            <li>Análise de cobertura comercial.</li>
+            <li>Expansão para novas regiões.</li>
+            <li>Melhoria das operações de campo.</li>
+        </ul>
 
-<h2>Integração com todo o sistema empresarial</h2>
+    </div>
 
-<p>
-Depois de criados no aplicativo móvel, clientes e fornecedores tornam-se parte integrante do ecossistema operacional do software.
-</p>
+    <div class="section">
 
-<p>
-Esses registros podem ser integrados com:
-</p>
+        <h2>Importância das fotografias</h2>
 
-<ul>
-<li>Vendas.</li>
-<li>Compras.</li>
-<li>Recebimentos.</li>
-<li>Pagamentos.</li>
-<li>Operações de estoque.</li>
-<li>Rotas de vendas.</li>
-<li>Análises geográficas.</li>
-<li>Relatórios gerenciais.</li>
-<li>Análise de dívidas.</li>
-<li>Painéis de Business Intelligence.</li>
-<li>Controle de saldos de clientes.</li>
-<li>Gestão de fornecedores.</li>
-</ul>
+        <p>
+            As fotos ajudam a identificar visualmente clientes, fornecedores, instalações e locais de atendimento, reduzindo erros e facilitando o reconhecimento pelos colaboradores.
+        </p>
 
-<p>
-Como coordenadas geográficas e fotografias permanecem armazenadas no banco de dados, essas informações continuam gerando valor muito tempo após o cadastro inicial.
-</p>
+        <ul>
+            <li>Identificação rápida de locais.</li>
+            <li>Suporte às entregas.</li>
+            <li>Documentação operacional.</li>
+            <li>Auditorias e inspeções.</li>
+            <li>Melhor gestão do relacionamento comercial.</li>
+        </ul>
 
-<h2>Objetivos desta lição</h2>
+    </div>
 
-<p>
-Ao final desta lição, você compreenderá como criar clientes e fornecedores diretamente em dispositivos Android, capturar coordenadas geográficas automaticamente, armazenar fotografias e utilizar essas informações em análises operacionais avançadas e gestão empresarial.
-</p>
+    <div class="section">
 
-<p>
-O curso da Udemy inclui uma demonstração prática completa mostrando todo o processo de cadastro móvel passo a passo utilizando cenários empresariais reais.
-</p>
+        <h2>Vantagens do cadastro móvel</h2>
 
-<h2>Recursos e navegação</h2>
+        <p>
+            O cadastro realizado diretamente no local elimina retrabalho, reduz erros de digitação e mantém as informações atualizadas em tempo real.
+        </p>
 
-<p>
-Acesse abaixo os downloads do software, materiais do curso, capturas de tela e recursos visuais.
-Tudo faz parte de um
-<span class="highlight">ecossistema gratuito</span>
-com suporte gratuito e melhoria contínua baseada no feedback de usuários e empresas reais.
-</p>
+        <p>
+            Essa funcionalidade é especialmente útil para equipes de vendas, distribuidores, técnicos de campo, empresas de construção, operações logísticas e negócios com múltiplos territórios.
+        </p>
 
-<a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
-Baixar o software
-</a>
+    </div>
 
-<a class="button" href="Contenido.html">
-Conteúdo completo
-</a>
+    <div class="section">
 
-<a class="button" href="desktop.html">
-Imagens da versão desktop
-</a>
+        <h2>Integração com todo o sistema</h2>
 
-<a class="button" href="app.html">
-Imagens do aplicativo móvel
-</a>
+        <p>
+            Após o cadastro, clientes e fornecedores passam a fazer parte de todo o ecossistema empresarial, podendo ser utilizados em vendas, compras, cobranças, pagamentos, relatórios, análises geográficas e operações de estoque.
+        </p>
 
-<a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
-Curso (Inglês)
-</a>
+        <ul>
+            <li>Vendas e compras.</li>
+            <li>Recebimentos e pagamentos.</li>
+            <li>Gestão de estoque.</li>
+            <li>Rotas comerciais.</li>
+            <li>Relatórios e dashboards.</li>
+            <li>Análises geográficas.</li>
+        </ul>
 
-<a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
-Curso (Francês)
-</a>
+    </div>
 
-<a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
-Curso (Italiano)
-</a>
+    <div class="section">
 
-<a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
-Curso (Português)
-</a>
+        <h2>Objetivos desta lição</h2>
 
-<a class="button button-green" href="index.html">
-Ir para a página principal
-</a>
+        <p>
+            Ao final desta lição, você saberá como cadastrar clientes e fornecedores pelo Android, capturar localização GPS, armazenar fotografias e utilizar essas informações para melhorar a gestão operacional da empresa.
+        </p>
 
+        <p>
+            O curso Udemy apresenta todo o processo passo a passo utilizando exemplos práticos de negócios reais.
+        </p>
+
+    </div>
+
+    <div class="section">
+        <h2>Recursos e navegação</h2>
+
+        <p>
+            Acesse abaixo todos os downloads, materiais do curso, capturas de tela e recursos visuais.
+            Tudo faz parte de um
+            <span class="highlight">ecossistema gratuito</span>
+            com suporte gratuito e melhorias contínuas baseadas no feedback dos usuários.
+        </p>
+
+        <a class="button" href="https://www.dropbox.com/scl/fi/w857cfimlerq19gtxyxo9/Stocks.rar?rlkey=kn06ugzajdyi4suja1hboe92u&st=96866jmr&dl=1">
+            Baixar o Software
+        </a>
+
+        <a class="button" href="Contenido.html">
+            Programa Completo
+        </a>
+
+        <a class="button" href="desktop.html">
+            Imagens do Desktop
+        </a>
+
+        <a class="button" href="app.html">
+            Imagens do Aplicativo Móvel
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/free-tool-for-small-businesses-sales-purchases-and-stock/">
+            Curso (Inglês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/outil-gratuit-pour-entreprises-ventes-achats-et-stocks/">
+            Curso (Francês)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/strumento-gratuito-per-imprese-acquisti-vendite-magazzino/">
+            Curso (Italiano)
+        </a>
+
+        <a class="button" href="https://www.udemy.com/course/ferramenta-gratuita-para-empresas-compras-vendas-estoque/">
+            Curso (Português)
+        </a>
+
+        <a class="button button-green" href="index.html">
+            Ir para a Página Principal
+        </a>
+
+    </div>
+
+</div>
+
+</body>
 </html>
